@@ -3,173 +3,160 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/D27FEB86-04EC-BA49-8898-0DE276AA07DB/main.js" charset="UTF-8"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script  defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyB7jx6fz5sxxutY_BI1xUfeR4TQKkxuGG8"  type="text/javascript"></script>
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script  defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyDX40GHCPDDlo84IdIhexVzMTL61V0_aRU"  type="text/javascript"></script>
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+  body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+  
+  </style>
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-            
-        </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
-    
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Distance Calculator</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Добро пожаловать!</h1>
-        <p>Этот сервис разработан для рассчета расстояния между двумя адресами.</p>
-      </div>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Distance Calculator</a>
     </div>
+  </div>
+</nav>
 
-    <div class="container">
-           <div class="col-md-6">
+<div class="jumbotron">
+  <div class="container">
+    <h1>Добро пожаловать!</h1>
+    <p>Этот сервис разработан для рассчета расстояния между двумя адресами.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-6">
     <form id="distance_form">
-        <div class="form-group">
-            <label>Откуда: </label>
-            <input  id="from_places" class="form-control" placeholder="Введите адрес" />
-            <input id="origin" type="hidden" name="origin" required/>
-        </div>
-
-        <div class="form-group">
-            <label>Куда: </label>
-            <input  id="to_places" class="form-control" placeholder="Введите адрес" />
-            <input id="destination" type="hidden" name="destination" required/>
-        </div>
-
-        <input type="submit" value="Рассчитать" class="btn btn-primary"/>
-    </form>
-               
-<div id="result">
-    <ul class="list-group">
-        
-        <li  class="list-group-item d-flex justify-content-between align-items-center">
-            Расстояние в километрах:
-            <span id='in_kilo' class="badge badge-primary badge-pill"></span>
-        </li>
-
-        <li  class="list-group-item d-flex justify-content-between align-items-center">
-            ОТ:
-            <span id="from" class="badge badge-primary badge-pill"></span>
-        </li>
-        <li  class="list-group-item d-flex justify-content-between align-items-center">
-            ДО:
-            <span id="to" class="badge badge-primary badge-pill"></span>
-        </li>
-    </ul>
-</div>
-</div>
+      <div class="form-group">
+        <label>Откуда: </label>
+        <input  id="from_places" class="form-control" placeholder="Введите адрес" />
+        <input id="origin" type="hidden" name="origin" required/>
       </div>
-
-      <hr>
-
-    </div> <!-- /container -->        
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-        <script src="js/vendor/bootstrap.min.js"></script>
-
-        <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<!--        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>-->
-        <script>
-            $(function() {
-                // add input listeners
-                google.maps.event.addDomListener(window, 'load', function () {
-                    var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
-                    var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
-
-                    google.maps.event.addListener(from_places, 'place_changed', function () {
-                        var from_place = from_places.getPlace();
-                        var from_address = from_place.formatted_address;
-                        $('#origin').val(from_address);
-                    });
-
-                    google.maps.event.addListener(to_places, 'place_changed', function () {
-                        var to_place = to_places.getPlace();
-                        var to_address = to_place.formatted_address;
-                        $('#destination').val(to_address);
-                    });
-
-                });
-                // calculate distance
-                function calculateDistance() {
-                    var origin = $('#origin').val();
-                    var destination = $('#destination').val();
-                    var service = new google.maps.DistanceMatrixService();
-                    service.getDistanceMatrix(
-                        {
-                            origins: [origin],
-                            destinations: [destination],
-                            travelMode: google.maps.TravelMode.DRIVING,
-                            unitSystem: google.maps.UnitSystem.metric, 
-                            avoidHighways: false,
-                            avoidTolls: false
-                        }, callback);
-                }
-                // get distance results
-                function callback(response, status) {
-                    if (status !== google.maps.DistanceMatrixStatus.OK) {
-                        $('#result').html(err);
-                    } else {
-                        var origin = response.originAddresses[0];
-                        var destination = response.destinationAddresses[0];
-                        if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
-                            $('#result').html("Добирайтесь другим способом, нет дорог между "  + origin + " и " + destination);
-                        } else {
-                            var distance = response.rows[0].elements[0].distance;
-                            console.log(response.rows[0].elements[0].distance);
-                            var distance_in_kilo = distance.value / 1000; 
-                            $('#in_kilo').text(distance_in_kilo.toFixed(2));
-                            $('#from').text(origin);
-                            $('#to').text(destination);
-                        }
-                    }
-                }
-                // print results on submit the form
-                $('#distance_form').submit(function(e){
-                    e.preventDefault();
-                    calculateDistance();
-                });
-
-            });
-
-        </script>
+      
+      <div class="form-group">
+        <label>Куда: </label>
+        <input  id="to_places" class="form-control" placeholder="Введите адрес" />
+        <input id="destination" type="hidden" name="destination" required/>
+      </div>
+      
+      <input type="submit" value="Рассчитать" class="btn btn-primary"/>
+    </form>
     
-</html>
+    <div id="result">
+      <ul class="list-group">
+        
+        <li  class="list-group-item d-flex justify-content-between align-items-center">
+          Расстояние в километрах:
+          <span id='in_kilo' class="badge badge-primary badge-pill"></span>
+        </li>
+        
+        <li  class="list-group-item d-flex justify-content-between align-items-center">
+          ОТ:
+          <span id="from" class="badge badge-primary badge-pill"></span>
+        </li>
+        <li  class="list-group-item d-flex justify-content-between align-items-center">
+          ДО:
+          <span id="to" class="badge badge-primary badge-pill"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+</div> <!-- /container -->        
+<!-- 
+
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script> -->
+
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+$(function() {
+  // add input listeners
+  google.maps.event.addDomListener(window, 'load', function () {
+    var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
+    var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
+    
+    google.maps.event.addListener(from_places, 'place_changed', function () {
+      var from_place = from_places.getPlace();
+      var from_address = from_place.formatted_address;
+      $('#origin').val(from_address);
+    });
+    
+    google.maps.event.addListener(to_places, 'place_changed', function () {
+      var to_place = to_places.getPlace();
+      var to_address = to_place.formatted_address;
+      $('#destination').val(to_address);
+    });
+    
+  });
+  // calculate distance
+  function calculateDistance() {
+    var origin = $('#origin').val();
+    var destination = $('#destination').val();
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix(
+      {
+        origins: [origin],
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.WALKING,
+        unitSystem: google.maps.UnitSystem.metric, 
+        avoidHighways: false,
+        avoidTolls: false
+      }, callback);
+    }
+    // get distance results
+    function callback(response, status) {
+      if (status !== google.maps.DistanceMatrixStatus.OK) {
+        $('#result').html(err);
+      } else {
+        var origin = response.originAddresses[0];
+        var destination = response.destinationAddresses[0];
+        if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
+          $('#result').html("Добирайтесь другим способом, нет дорог между "  + origin + " и " + destination);
+        } else {
+          var distance = response.rows[0].elements[0].distance;
+          console.log(response.rows[0].elements[0].distance);
+          var distance_in_kilo = distance.value / 1000; 
+          $('#in_kilo').text(distance_in_kilo.toFixed(2));
+          $('#from').text(origin);
+          $('#to').text(destination);
+        }
+      }
+    }
+    // print results on submit the form
+    $('#distance_form').submit(function(e){
+      e.preventDefault();
+      calculateDistance();
+    });
+    
+  });
+  
+  </script>
+  
+  </html>
